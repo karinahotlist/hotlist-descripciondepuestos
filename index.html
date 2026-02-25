@@ -1069,15 +1069,13 @@ async function generateDescription() {
       return;
     }
 
-    const response = await fetch(workerUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 4000,
-        messages: [{ role: 'user', content: buildPrompt(data) }]
-      })
-    });
+   const response = await fetch('/api/generate', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    prompt: buildPrompt(data)   // solo mandamos el prompt
+  }),
+});
 
     if (!response.ok) {
       const errBody = await response.text();
