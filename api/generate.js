@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     }
 
     const payload = {
-      model: "claude-3-haiku-20240307",
+      model: "claude-3-sonnet-20240229",
       max_tokens: 1000,
       messages: [
         {
